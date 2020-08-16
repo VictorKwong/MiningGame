@@ -1,0 +1,12 @@
+.beginBtn{
+    padding:10px 20px;
+    cursor: pointer;
+    border:none;
+    border-radius: 5px;
+    transition: all ease-in-out 0.3s;
+}
+
+.beginBtn:hover,
+.beginBtn:focus{
+    background-color: skyblue;
+}

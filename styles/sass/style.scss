@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Walter+Turncoat');
+//helper
+@import "helper/mixins";
+@import "helper/variable";
+
+//components
+@import "components/setup";
+@import "components/header";
+@import "components/main";

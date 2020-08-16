@@ -1,0 +1,24 @@
+.gridDiagram{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto; 
+    column-gap: 10px;
+    row-gap: 10px;
+    width: 100%;
+}
+
+.cardSingle{
+    position: relative;
+    width:150px;
+    height:150px;
+    border:1px solid black;
+}
+
+
+.cardEtcFront,
+.cardEtcBack{
+    width:150px;
+    height:150px;
+    position: absolute;
+}
+
