@@ -38,16 +38,30 @@ happyMining.gold = function () {
         if (data.val().Resource[userGold] < data.val().Storage[userStorageGold]){
             //Unit in second
             const autoSourceG = data.val().Resource[userGold] + (data.val().Income[userBaseInGold] / 60);
-            $(`.fireBase`).html(`Gold: ${Math.round(autoSourceG)}`);
+            $(`.currentGold`).html(`Gold: ${Math.round(autoSourceG)}`);
             return firebase.database().ref(`Resource/${userGold}`).set(autoSourceG);
         } else if (data.val().Resource[userGold] + (data.val().Income[userBaseInGold] / 60) >= data.val().Storage[userStorageGold]){
             const autoSourceG = data.val().Storage[userStorageGold];
-            $(`.fireBase`).html(`Gold: ${autoSourceG}`);
+            $(`.currentGold`).html(`Gold: ${autoSourceG}`);
             return firebase.database().ref(`Resource/${userGold}`).set(autoSourceG);
         }
     });
 }
 
+happyMining.crystal = function () {
+    dbRef.once('value', (data) => {
+        if (data.val().Resource[userCrystal] < data.val().Storage[userStorageCrystal]){
+            //Unit in second
+            const autoSourceG = data.val().Resource[userCrystal] + (data.val().Income[userBaseInCrystal] / 60);
+            $(`.currentCrystal`).html(`Crystal: ${Math.round(autoSourceG)}`);
+            return firebase.database().ref(`Resource/${userCrystal}`).set(autoSourceG);
+        } else if (data.val().Resource[userCrystal] + (data.val().Income[userBaseInCrystal] / 60) >= data.val().Storage[userStorageCrystal]){
+            const autoSourceG = data.val().Storage[userStorageCrystal];
+            $(`.currentCrystal`).html(`Crystal: ${autoSourceG}`);
+            return firebase.database().ref(`Resource/${userCrystal}`).set(autoSourceG);
+        }
+    });
+}
 
 // Start game
 happyMining.title = function () {
@@ -60,7 +74,9 @@ happyMining.title = function () {
 
 happyMining.init = () => {
     setInterval(happyMining.gold, 1000);
+    setInterval(happyMining.crystal, 1000);
     happyMining.gold();
+    happyMining.crystal();
 }
 
 $(document).ready(happyMining.init());
