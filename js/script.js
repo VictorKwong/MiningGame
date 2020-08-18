@@ -63,6 +63,15 @@ happyMining.crystal = function () {
     });
 }
 
+// Clock
+happyMining.clock = function () {
+    let dateVar = new Date();
+	let time = dateVar.toLocaleTimeString();
+	$('.clock').html(`${time}`);
+}
+
+
+
 // Start game
 happyMining.title = function () {
     $('.mainBgm').hide();
@@ -73,6 +82,7 @@ happyMining.title = function () {
 }
 
 happyMining.init = () => {
+    setInterval(happyMining.clock, 1000);
     setInterval(happyMining.gold, 1000);
     setInterval(happyMining.crystal, 1000);
     happyMining.gold();
