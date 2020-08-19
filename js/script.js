@@ -81,12 +81,17 @@ happyMining.title = function () {
     })
 }
 
+happyMining.mining = function () {
+    $('.mining').on('click', function (){
+        happyMining.gold();
+        happyMining.crystal();
+    })
+}
+
+
 happyMining.init = () => {
     setInterval(happyMining.clock, 1000);
-    setInterval(happyMining.gold, 1000);
-    setInterval(happyMining.crystal, 1000);
-    happyMining.gold();
-    happyMining.crystal();
+    happyMining.mining();
 }
 
 $(document).ready(happyMining.init());
